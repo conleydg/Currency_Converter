@@ -17,7 +17,7 @@ class CurrencyConverter:
         to_dollars = currency_instance.amount / (self.conversion_rates[currency_instance.currency_code])
         print(to_dollars)
         convert_to_new_currency = to_dollars * self.conversion_rates[new_currency]
-        print(convert_to_new_currency)
+        print("%.2f" % convert_to_new_currency, new_currency)
 
 
 
