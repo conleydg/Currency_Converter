@@ -14,12 +14,23 @@
 
 
 # Must be able to be multiplied by an int or float and return a Currency object.
+
+
 # Currency() must be able to take one argument with a currency symbol embedded in it, like "$1.20" or "€ 7.00", and figure out the correct currency code. It can also take two arguments, one being the amount and the other being the currency code.
-class MyException(Exception):
+import sys
+
+class DifferentCurrencyCodeError(Exception):
     pass
 
 
 class Currency:
+    def __init__(self, amount, currency_code):
+            self.amount = amount
+            self.currency_code = currency_code
+
+
+
+
     def __init__(self, amount, currency_code):
         self.amount = amount
         self.currency_code = currency_code
@@ -35,20 +46,19 @@ class Currency:
         if self.currency_code == other.currency_code:
             return self.amount + other.amount
         else:
-            raise MYException
+            raise DifferentCurrencyCodeError()
 
     def __sub__(self, other):
         if self.currency_code == other.currency_code:
             return self.amount - other.amount
         else:
-            raise MYException("something bad happened")
+            raise DifferentCurrencyCodeError()
 
     def __mul__(self, other):
         try:
             return (self.currency_code, self.amount * float(other))
         except:
-            raise MYException("something bad happened")
-
+            raise DifferentCurrencyCodeError()
 
 
 
