@@ -6,3 +6,26 @@
 # Must be able to be created with a dictionary of three or more currency codes and conversion rates. An example would be this: {'USD': 1.0, 'EUR': 0.74, 'JPY': 120.0}, which implies that a dollar is worth 0.74 euros and that a dollar is worth 120 yen, but also that a euro is worth 120/0.74 = 162.2 yen.
 # Must be able to convert Currency in any currency code it knows about to Currency in any other currency code it knows about.
 # Must raise an UnknownCurrencyCodeError when you try to convert from or to a currency code it doesn't know about.
+
+conversion_rates = {'USD': 1.0, 'EUR': 0.74, 'JPY': 120.0}
+
+class CurrencyConverter:
+    def __init__(self, conversion_rates):
+        self.conversion_rates = conversion_rates
+
+    def convert(self, currency_instance, new_currency):
+        to_dollars = currency_instance.amount / (self.conversion_rates[currency_instance.currency_code])
+        print(to_dollars)
+        convert_to_new_currency = to_dollars * self.conversion_rates[new_currency]
+        print(convert_to_new_currency)
+
+
+
+        # if currency_instace.currency_code == 'USD':
+        #     return rate_to_USD = 1
+        #
+        # elif currency_instace.currency_code == 'Eur':
+        #     rate_to_USD = currency_instance.amount / .74
+        #
+        # elif currency_instace.currency_code == 'JPY':
+        #     rate_to_USD = currency_instance.amount / 120
