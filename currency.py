@@ -2,8 +2,12 @@
 # Must be created with an amount and a currency code.
 
 # Must equal another Currency object with the same amount and currency code.
+
 # Must NOT equal another Currency object with different amount or currency code.
+
+
 # Must be able to be added to another Currency object with the same currency code.
+
 # Must be able to be subtracted by another Currency object with the same currency code.
 # Must raise a DifferentCurrencyCodeError when you try to add or subtract two Currency objects with different currency codes.
 # Must be able to be multiplied by an int or float and return a Currency object.
@@ -17,10 +21,19 @@ class Currency:
     def __str__(self):
         return str(self.amount) + ' ' + self.currency_code
 
-
-
     def __eq__(self, other):
         return self.amount == other.amount
+
+    def __eq__(self, other):
+        return self.currency_code == other.currency_code
+
+    def __add__(self, other):
+        if self.currency_code == other.currency_code:
+            return self.amount + other.amount
+
+    def __sub__(self, other):
+        if self.currency_code == other.currency_code:
+            return self.amount - other.amount
 
 
     # def is_currency_equal(self, other_currency_class):
