@@ -1,5 +1,4 @@
 
-# Must be created with an amount and a currency code.
 
 # Must equal another Currency object with the same amount and currency code.
 
@@ -29,18 +28,16 @@ class Currency:
             self.currency_code = currency_code
 
 
-
-
     def __init__(self, amount, currency_code):
         self.amount = amount
         self.currency_code = currency_code
 
 
     def __eq__(self, other):
-        return self.amount == other.amount
+        return self.amount == other.amount and self.currency_code == other.currency_code
 
-    def __eq__(self, other):
-        return self.currency_code == other.currency_code
+    def __ne__(self, other):
+        return self.currency_code != other.currency_code or self.amount != other.amount
 
     def __add__(self, other):
         if self.currency_code == other.currency_code:
