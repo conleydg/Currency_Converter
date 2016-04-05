@@ -27,7 +27,7 @@ print('test_currency * 3', test_currency * 3)
 #
 converter_one.convert(test_currency, 'USD')
 
-print('test_currency converted from JPY to USD: )
+print('test_currency converted from JPY to USD: ')
 print(test_currency.amount, test_currency.currency_code)
 #
 
