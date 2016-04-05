@@ -7,6 +7,9 @@
 # Must raise an UnknownCurrencyCodeError when you try to convert from or to a currency code it doesn't know about.
 
 # conversion_rates = {'USD': 1.0, 'EUR': 0.74, 'JPY': 120.0}
+
+from currency import *
+
 class UnknownCurrencyCodeError(Exception):
     pass
 
@@ -21,6 +24,9 @@ class CurrencyConverter():
         else:
             to_dollars = currency_instance.amount / (self.conversion_rates[currency_instance.currency_code])
             new_ammount = to_dollars * self.conversion_rates[new_currency]
-            currency_instance.amount = ("%.2f" % new_ammount)
-            currency_instance.currency_code = new_currency
-            return(currency_instance.amount, currency_instance.currency_code)
+            return Currency("%.2f" % new_ammount, new_currency)
+
+
+            # currency_instance.amount = ("%.2f" % new_ammount)
+            # currency_instance.currency_code = new_currency
+            # return(currency_instance.amount, currency_instance.currency_code)
