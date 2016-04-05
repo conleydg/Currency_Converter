@@ -1,10 +1,5 @@
 
 
-# Must equal another Currency object with the same amount and currency code.
-
-# Must NOT equal another Currency object with different amount or currency code.
-
-
 # Must be able to be added to another Currency object with the same currency code.
 
 # Must be able to be subtracted by another Currency object with the same currency code.
@@ -52,10 +47,9 @@ class Currency:
             raise DifferentCurrencyCodeError()
 
     def __mul__(self, other):
-        try:
-            return (self.currency_code, self.amount * float(other))
-        except:
-            raise DifferentCurrencyCodeError()
+        self.amount = self.amount * float(other)
+        return self.currency_code, self.amount
+
 
 
 
