@@ -1,11 +1,16 @@
 import unittest
 
-from currencty import *
+from currency import *
 
-class TestPalindrome(unittest.TestCase):
+class TestCurrency(unittest.TestCase):
+    test_currency = Currency(5000, 'JPY')
+    test_currency_two = Currency(5000, 'JPY')
 
-    def test_even_numbers(self):
-        self.assertTrue(is_palindrome('toot'))
+    print(test_currency.amount)
+
+
+    def Test_is_equal(self):
+        self.assertEqual(test_currency,test_currency_two)
 
 
 
